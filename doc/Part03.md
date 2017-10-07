@@ -1,3 +1,18 @@
+# Part3 ローカルアプリでTwitterを検索できるようにする
+
+Java でもローカルアプリを作ることができます。
+
+たとえば、Androidアプリの多くが、Javaで作られています。
+
+一方でPC用のデスクトップアプリの分野では、Javaが活躍できている場は少ないようです。
+
+Androidの体験には、やはり機材の準備などが必要なので、ここではJavaでアートやデザインを行うことができるProcessingという開発土台を使って、簡易的なデスクトップアプリをつくってみましょう。
+
+## デスクトップアプリの画面を作る
+
+main/javaフォルダの `com.example.local.View.java` を下のようにプログラミングしましょう。
+
+```java
 package com.example.local;
 
 import com.example.repository.TimeLineBlock;
@@ -17,7 +32,7 @@ public class View extends PApplet {
 
   //テキスト入力欄用の部品プログラム
   private ControlP5 cp5;
-
+  
   //Twitter接続用の部品プログラム
   private TwitterRepository service;
 
@@ -96,3 +111,12 @@ public class View extends PApplet {
   }
 
 }
+
+```
+
+## 動作確認
+
+test/java フォルダの `com.example.Local` を実行しましょう。
+
+検索ワードに何か文字（簡易アプリなので、英数字しか入りません）を入れて、Searchボタンを押すと、タイムラインが表示されることを確認しましょう。
+
