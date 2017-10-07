@@ -1,6 +1,8 @@
 # Part1 Twitterの情報を取得する
 
-指示の通りプログラミングしましょう。
+部品のプログラムを組み合わせて、Twitter検索できるプログラムを作りましょう。
+
+Twitter検索には、皆さんがそれぞれ作る部品プログラムと、Twitter4Jという外部部品プログラムをつくります。
 
 できるだけコピー＆ペーストはせずに、自分の手で複写してみましょう。
 
@@ -90,10 +92,10 @@ public class Tweet {
 
 ![fig02.jpg](./fig02.jpg)
 
-main/javaフォルダの `com.example.data.TimeLineBlock.java` を下のようにプログラミングしましょう。
+main/javaフォルダの `com.example.repository.TimeLineBlock.java` を下のようにプログラミングしましょう。
 
 ```java
-package com.example.data;
+package com.example.repository;
 
 import com.example.value.ScreenName;
 import com.example.value.Tweet;
@@ -163,7 +165,6 @@ main/javaフォルダの `com.example.repository.TwitterRepository.java` を下�
 ```java
 package com.example.repository;
 
-import com.example.data.TimeLineBlock;
 import twitter4j.Query;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;

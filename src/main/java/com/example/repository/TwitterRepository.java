@@ -1,6 +1,5 @@
 package com.example.repository;
 
-import com.example.data.TimeLineBlock;
 import twitter4j.Query;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;

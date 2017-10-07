@@ -1,4 +1,4 @@
-package com.example.data;
+package com.example.repository;
 
 import com.example.value.ScreenName;
 import com.example.value.Tweet;

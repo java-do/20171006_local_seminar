@@ -1,6 +1,6 @@
 package com.example.local;
 
-import com.example.data.TimeLineBlock;
+import com.example.repository.TimeLineBlock;
 import com.example.repository.TwitterRepository;
 import controlP5.ControlP5;
 import controlP5.Textfield;

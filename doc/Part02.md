@@ -1,3 +1,64 @@
+# Part2 WebでTwitterを検索できるようにする
+
+Java は Webシステムでよく使われます。
+
+特に最近は、スマホのアプリやブラウザ上のプログラムにデータを渡す Web-API と、Web-APIで受け渡しされるデータの管理や分散処理に使われます。（こうした役割をバックエンドと呼びます）
+
+これの作成を短い時間で体験するのは残念ながら大変なので、一昔前の方法ですが、JavaでWebサイトを作ってみましょう。
+
+(Apache Wicketという、Webアプリケーション開発用の土台部品：フレームワークを使います)
+
+## Webの画面を作る
+
+main/javaフォルダの `com.example.web.HomePage.html` を下のようにプログラミングしましょう。
+
+```html
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+  <meta charset="utf-8"/>
+  <style>
+    form {
+      margin-bottom: 10px;
+    }
+
+    div.timeline {
+      display: flex;
+      border-top: thin solid gray;
+    }
+
+    div.icon {
+      width: 80px;
+    }
+
+    p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<form wicket:id="form">
+  検索ワード：<input type="text" wicket:id="word">
+  <button type="submit">検索</button>
+</form>
+<div class="timeline" wicket:id="timeLine">
+  <div class="icon">
+    <img wicket:id="iconUrI"/>
+  </div>
+  <div wicket:id="blockMessage">blockMessage</div>
+</div>
+</body>
+</html>
+
+}
+
+```
+
+## HTMLに部品を埋め込むJavaプログラムを作る
+
+main/javaフォルダの `com.example.web.HomePage.java` を下のようにプログラミングしましょう。
+
+```java
 package com.example.web;
 
 import com.example.repository.TimeLineBlock;
@@ -62,3 +123,11 @@ public class HomePage extends WebPage {
     });
   }
 }
+
+```
+
+## 動作確認
+
+test/java フォルダの `com.example.Web` を実行しましょう。
+
+
