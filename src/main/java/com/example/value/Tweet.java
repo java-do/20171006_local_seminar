@@ -24,7 +24,7 @@ public class Tweet {
     }
   }
 
-  // データの取り出し
+  // データの呼び出し
   public String getValue() {
     return value;
   }

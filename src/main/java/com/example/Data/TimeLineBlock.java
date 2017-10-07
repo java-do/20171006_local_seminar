@@ -15,11 +15,13 @@ import static java.util.Objects.requireNonNull;
 
 public class TimeLineBlock {
 
+  // タイムラインを構成する部品プログラム
   private final Tweet tweet;
   private final ScreenName screenName;
   private final URI iconURI;
   private final ZonedDateTime tweetAt;
 
+  // データの初期化
   public TimeLineBlock(Status status) {
     requireNonNull(status);
     tweet = new Tweet(status.getText());
@@ -32,10 +34,12 @@ public class TimeLineBlock {
     tweetAt = instant.atZone(ZoneId.systemDefault());
   }
 
+  // URIデータを文字列で呼び出し
   public String getIconUrI() {
     return iconURI.toString();
   }
 
+  // URIデータの拡張子を呼び出し
   public String getExtention() {
     String uri = iconURI.toString();
     int index = uri.lastIndexOf(".") + 1;
@@ -43,6 +47,7 @@ public class TimeLineBlock {
     return Objects.equals(extension, "jpeg") ? "jpg" : extension;
   }
 
+  // タイムラインの文章部分を文字列で呼び出し
   public String getBlockMessage() {
     return String.format("%s\t%s\n%s",
       screenName.getValue(), tweetAt.toString(), tweet.getValue());

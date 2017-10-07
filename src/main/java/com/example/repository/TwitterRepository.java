@@ -20,8 +20,10 @@ public class TwitterRepository {
   private static final String ACCESS_TOKEN = "****";
   private static final String ACCESS_TOKEN_SECRET = "****";
 
+	// Twitter4J（Twitterにアクセスする役割の外部部品プログラム）
   private Twitter twitter;
 
+  // データの初期化
   public TwitterRepository() {
     ConfigurationBuilder cb = new ConfigurationBuilder();
     cb.setDebugEnabled(true)
@@ -32,13 +34,14 @@ public class TwitterRepository {
     twitter = new TwitterFactory(cb.build()).getInstance();
   }
 
-  public List<TimeLineBlock> getTimeLineBlocks(int limit, String tag) throws TwitterException {
-    requireNonNull(tag);
-    if (tag.isEmpty()) {
+  // Twitterから limit 件、word での検索結果を取り出し、TimeLineBlock部品に情報をいれる
+  public List<TimeLineBlock> getTimeLineBlocks(int limit, String word) throws TwitterException {
+    requireNonNull(word);
+    if (word.isEmpty()) {
       return emptyList();
     }
     System.out.println("get status...");
-    return twitter.search(new Query(tag))
+    return twitter.search(new Query(word))
       .getTweets()
       .stream()
       .filter(s -> !s.getUser().isProtected())

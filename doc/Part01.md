@@ -1,5 +1,11 @@
 # Part1 Twitterの情報を取得する
 
+指示の通りプログラミングしましょう。
+
+できるだけコピー＆ペーストはせずに、自分の手で複写してみましょう。
+
+コメントアウト(// の文章）は複写しなくても大丈夫です。
+
 ## Twitterのユーザー名（ScreenName)の役割の部品プログラムを作る
 
 main/javaフォルダの `com.example.value.ScreenName.java` を下のようにプログラミングしましょう。
@@ -104,11 +110,13 @@ import static java.util.Objects.requireNonNull;
 
 public class TimeLineBlock {
 
+  // タイムラインを構成する部品プログラム
   private final Tweet tweet;
   private final ScreenName screenName;
   private final URI iconURI;
   private final ZonedDateTime tweetAt;
 
+  // データの初期化
   public TimeLineBlock(Status status) {
     requireNonNull(status);
     tweet = new Tweet(status.getText());
@@ -121,10 +129,12 @@ public class TimeLineBlock {
     tweetAt = instant.atZone(ZoneId.systemDefault());
   }
 
+  // URIデータを文字列で呼び出し
   public String getIconUrI() {
     return iconURI.toString();
   }
 
+  // URIデータの拡張子を呼び出し
   public String getExtention() {
     String uri = iconURI.toString();
     int index = uri.lastIndexOf(".") + 1;
@@ -132,6 +142,7 @@ public class TimeLineBlock {
     return Objects.equals(extension, "jpeg") ? "jpg" : extension;
   }
 
+  // タイムラインの文章部分を文字列で呼び出し
   public String getBlockMessage() {
     return String.format("%s\t%s\n%s",
       screenName.getValue(), tweetAt.toString(), tweet.getValue());
@@ -167,13 +178,16 @@ import static java.util.stream.Collectors.toList;
 
 public class TwitterRepository {
 
-  private static final String CONSUMER_KEY = "****";
-  	private static final String CONSUMER_SECRET = "****";
-  	private static final String ACCESS_TOKEN = "****";
-  	private static final String ACCESS_TOKEN_SECRET = "****";
+  // Twitterへの認証情報
+	private static final String CONSUMER_KEY = "SVjd08qXoxAxiCoyiL47pDUh6";
+	private static final String CONSUMER_SECRET = "BcePzh5wDp7u3gEQojmdVwKnpN4HcWb24BF8iN53OMGGQtUqiU";
+	private static final String ACCESS_TOKEN = "15720404-5Wn6ZNnFeoT1innGzgqoUmTq5koYRr0qXSL1YQ1P5";
+	private static final String ACCESS_TOKEN_SECRET = "qzItRsLCks3P21HxHIFDbvMepnT0Oxgz7zzhdpN4p5pCg";
 
+	// Twitter4J（Twitterにアクセスする役割の外部部品プログラム）
   private Twitter twitter;
 
+  // データの初期化
   public TwitterRepository() {
     ConfigurationBuilder cb = new ConfigurationBuilder();
     cb.setDebugEnabled(true)
@@ -184,13 +198,14 @@ public class TwitterRepository {
     twitter = new TwitterFactory(cb.build()).getInstance();
   }
 
-  public List<TimeLineBlock> getTimeLineBlocks(int limit, String tag) throws TwitterException {
-    requireNonNull(tag);
-    if (tag.isEmpty()) {
+  // Twitterから limit 件、word での検索結果を取り出し、TimeLineBlock部品に情報をいれる
+  public List<TimeLineBlock> getTimeLineBlocks(int limit, String word) throws TwitterException {
+    requireNonNull(word);
+    if (word.isEmpty()) {
       return emptyList();
     }
     System.out.println("get status...");
-    return twitter.search(new Query(tag))
+    return twitter.search(new Query(word))
       .getTweets()
       .stream()
       .filter(s -> !s.getUser().isProtected())
@@ -198,6 +213,7 @@ public class TwitterRepository {
       .map(TimeLineBlock::new)
       .collect(toList());
   }
+
 }
 ```
 
