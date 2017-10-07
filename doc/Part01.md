@@ -180,12 +180,12 @@ import static java.util.stream.Collectors.toList;
 public class TwitterRepository {
 
   // Twitterへの認証情報
-	private static final String CONSUMER_KEY = "SVjd08qXoxAxiCoyiL47pDUh6";
-	private static final String CONSUMER_SECRET = "BcePzh5wDp7u3gEQojmdVwKnpN4HcWb24BF8iN53OMGGQtUqiU";
-	private static final String ACCESS_TOKEN = "15720404-5Wn6ZNnFeoT1innGzgqoUmTq5koYRr0qXSL1YQ1P5";
-	private static final String ACCESS_TOKEN_SECRET = "qzItRsLCks3P21HxHIFDbvMepnT0Oxgz7zzhdpN4p5pCg";
+  private static final String CONSUMER_KEY = "****";
+  private static final String CONSUMER_SECRET = "****";
+  private static final String ACCESS_TOKEN = "****";
+  private static final String ACCESS_TOKEN_SECRET = "****";
 
-	// Twitter4J（Twitterにアクセスする役割の外部部品プログラム）
+  // Twitter4J（Twitterにアクセスする役割の外部部品プログラム）
   private Twitter twitter;
 
   // データの初期化
