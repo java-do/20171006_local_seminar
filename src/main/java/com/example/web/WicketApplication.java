@@ -10,21 +10,21 @@ import org.apache.wicket.protocol.http.WebApplication;
  * @see com.example.Start#main(String[])
  */
 public class WicketApplication extends WebApplication {
-	/**
-	 * @see org.apache.wicket.Application#getHomePage()
-	 */
-	@Override
-	public Class<? extends WebPage> getHomePage() {
-		return HomePage.class;
-	}
+  /**
+   * @see org.apache.wicket.Application#getHomePage()
+   */
+  @Override
+  public Class<? extends WebPage> getHomePage() {
+    return HomePage.class;
+  }
 
-	/**
-	 * @see org.apache.wicket.Application#init()
-	 */
-	@Override
-	public void init() {
-		super.init();
-		getRequestCycleSettings().setResponseRequestEncoding("UTF-8");
-		getMarkupSettings().setDefaultMarkupEncoding("UTF-8");
-	}
+  /**
+   * @see org.apache.wicket.Application#init()
+   */
+  @Override
+  public void init() {
+    super.init();
+    getRequestCycleSettings().setResponseRequestEncoding("UTF-8");
+    getMarkupSettings().setDefaultMarkupEncoding("UTF-8");
+  }
 }
