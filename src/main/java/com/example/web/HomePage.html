@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+  <meta charset="utf-8"/>
+  <style>
+    form {
+      margin-bottom: 10px;
+    }
+    div.timeline {
+      display: flex;
+      border-top: thin solid gray;
+    }
+    div.icon {
+      width: 80px;
+    }
+    p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<form wicket:id="form">
+  検索ワード：<input type="text" wicket:id="word">
+  <button type="submit">検索</button>
+</form>
+<div class="timeline" wicket:id="timeLine">
+  <div class="icon">
+    <img wicket:id="iconUrI"/>
+  </div>
+  <div wicket:id="blockMessage">blockMessage</div>
+</div>
+</body>
+</html>
