@@ -160,7 +160,18 @@ Twitterにアクセスして、上のTimeLineBlockの部品プログラムに情
 
 main/javaフォルダの `com.example.repository.TwitterRepository.java` を下のようにプログラミングしましょう。
 
-`****` の部分は、自分でTwitterのサイトから取得したものに変えて下さい。 
+`****` の部分は、自分でTwitterのサイトから取得したものに変えて下さい。
+
+[参考：Twitter API キーの取得手順](http://dotnsf.blog.jp/archives/1044796238.html)
+
+Name, Description, WebSiteは何でもよいのですが、思いつかなければ下をいれてください。
+
+- Name
+  - javado_test
+- Description
+  - javado_test
+- WebSite
+  - https://javado.connpass.com/ 
 
 ```java
 package com.example.repository;
