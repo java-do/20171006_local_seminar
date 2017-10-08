@@ -130,7 +130,7 @@ public class HomePage extends WebPage {
 
 test/java フォルダの `com.example.Web` を実行しましょう。
 
-ブラウザで、 [http://localhost:8080/] にアクセスしてみましょう。
+ブラウザで、 [http://localhost:8080/](http://localhost:8080/) にアクセスしてみましょう。
 
 検索ワードに何か文字を入れて、検索ボタンを押すと、タイムラインが表示されることを確認しましょう。
 
